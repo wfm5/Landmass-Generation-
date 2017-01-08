@@ -3,7 +3,8 @@ using System.Collections;
 
 public static class Noise
 {
-    public static float[,] GenerateNoiseMap(int mapWidth, int mapHeight, int seed, float scale, int octaves, float persistance, float lacunarity, Vector2 offset)
+    public static float[,] GenerateNoiseMap(int mapWidth, int mapHeight, int seed, float scale,
+        int octaves, float persistance, float lacunarity, Vector2 offset)
     {
         float[,] noiseMap = new float[mapWidth, mapHeight];
 
@@ -38,7 +39,7 @@ public static class Noise
                     float sampleY = (y-halfHeight) / scale * frequency + octaveOffsets[i].y;
 
                     float perlinValue = Mathf.PerlinNoise(sampleX,sampleY) * 2 - 1;
-                    noiseHeight += perlinValue * amplitude;
+                    noiseHeight += perlinValue *amplitude;
 
                     amplitude *= persistance;
                     frequency *= lacunarity;
